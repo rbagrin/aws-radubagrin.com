@@ -17,16 +17,23 @@ function App({ signOut }: {signOut: () => void}) {
 
   async function callApi() {
     const user = await Auth.currentAuthenticatedUser()
+
+    console.log(user.signInUserSession.idToken.jwtToken)
     const token = user.signInUserSession.idToken.jwtToken
 
     const requestData = {
         headers: {
-            Authorization: token
+            Authorization: token,
+            "Content-Type": 'application/json'
         }
     }
+    try {
     const data = await API.get('awsradubagrincom', '/resume', requestData)
     console.log("data: ", data)
     setResponse(data);
+    } catch(error) {
+      console.error(error)
+    }
   }
 
   return (
