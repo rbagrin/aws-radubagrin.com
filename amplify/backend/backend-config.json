@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "GetResume"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "awsradubagrinGetSongs"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -46,6 +54,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "awsradubagrinGetSongs": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -64,6 +77,29 @@
           "resourceName": "GetResume"
         }
       ]
+    },
+    "AMPLIFY_function_awsradubagrinGetSongs_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "awsradubagrinGetSongs"
+        }
+      ]
+    },
+    "AMPLIFY_function_awsradubagrinGetSongs_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "awsradubagrinGetSongs"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "awsradubagrincom": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }

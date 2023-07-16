@@ -16,6 +16,22 @@
           "read"
         ]
       }
+    },
+    "/songs": {
+      "name": "/songs",
+      "lambdaFunction": "awsradubagrinGetSongs",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "read"
+        ]
+      }
     }
   }
 }

@@ -20,9 +20,16 @@
         "GetResume": {
           "deploymentBucketName": "amplify-amplify9b23983a824d4-staging-153651-deployment",
           "s3Key": "amplify-builds/GetResume-36716545397946597551-build.zip"
+        },
+        "awsradubagrinGetSongs": {
+          "deploymentBucketName": "amplify-amplify9b23983a824d4-staging-153651-deployment",
+          "s3Key": "amplify-builds/awsradubagrinGetSongs-4a2b5363733538755168-build.zip"
         }
       },
       "api": {
+        "awsradubagrincom": {}
+      },
+      "storage": {
         "awsradubagrincom": {}
       }
     }

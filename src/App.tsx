@@ -9,18 +9,16 @@ import {
   Card,
 } from "@aws-amplify/ui-react";
 
-import Amplify, {API, Auth} from 'aws-amplify'
+import { API, Auth } from 'aws-amplify'
 import { useState } from "react";
+import { MusicComponent } from "./modules/music/components/music.component";
 
 function App({ signOut }: {signOut: () => void}) {
   const [response, setResponse] = useState<Record<string, any> | null>(null);
 
   async function callApi() {
     const user = await Auth.currentAuthenticatedUser()
-
-    console.log(user.signInUserSession.idToken.jwtToken)
     const token = user.signInUserSession.idToken.jwtToken
-
     const requestData = {
         headers: {
             Authorization: token,
@@ -28,8 +26,8 @@ function App({ signOut }: {signOut: () => void}) {
         }
     }
     try {
-    const data = await API.get('awsradubagrincom', '/resume', requestData)
-    console.log("data: ", data)
+    const data = await API.get('awsradubagrincom', '/resume', requestData);
+    console.log("data: ", data);
     setResponse(data);
     } catch(error) {
       console.error(error)
@@ -44,6 +42,7 @@ function App({ signOut }: {signOut: () => void}) {
       </Card>
       <Button onClick={signOut}>Sign Out</Button>
 
+      <MusicComponent />
       <Button onClick={callApi}>Call API</Button>
 
       {response && <Card>{JSON.stringify(response, null, 2)}</Card>}
